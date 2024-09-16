@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper Example</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="test.css">
+    
+
+</head>
+<body>
+
+<!--small navbar-->
+<div class="w3-bar">
+<div class="w3-bar-item">Lifestyle Blog for Everyone !</div>
+<p>gabcantoss99@gmail.com</p>
+</div>
+<!--small navbar-->
+
+<!--navigation bar -->
+<nav class="navbar">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li>
+<a href="#about">About</a>
+<div class="dropdown">
+<a href="team.html">Our Team</a>
+<a href="history.html">History</a>
+<a href="mission.html">Mission</a>
+</div>
+</li>
+<li>
+<a href="#services">Services</a>
+<div class="dropdown">
+<a href="web-design.html">Web Design</a>
+<a href="development.html">Development</a>
+<a href="consulting.html">Consulting</a>
+</div>
+</li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+<div class="menu-icon">☰</div>
+</nav>
+<hr>
+<aside class="aside-nav">
+<span class="close-btn">&times;</span>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li>
+<a href="#about">About</a>
+<div class="dropdown">
+<a href="team.html">Our Team</a>
+<a href="history.html">History</a>
+<a href="mission.html">Mission</a>
+</div>
+</li>
+<li>
+<a href="#services">Services</a>
+<div class="dropdown">
+<a href="web-design.html">Web Design</a>
+<a href="development.html">Development</a>
+<a href="consulting.html">Consulting</a>
+</div>
+</li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</aside>
+<!--navigation bar -->
+
+<!--search bar and write button-->
+<header class="header">
+<div class="search-bar">
+<input type="text" placeholder="Search...">
+ </div>
+</header>
+
+<button class="write-button">
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+<path d="M15.2141 5.98239L16.6158 4.58063C17.39 3.80646 18.6452 3.80646 19.4194 4.58063C20.1935 5.3548 20.1935 6.60998 19.4194 7.38415L18.0176 8.78591M15.2141 5.98239L6.98023 14.2163C5.93493 15.2616 5.41226 15.7842 5.05637 16.4211C4.70047 17.058 4.3424 18.5619 4 20C5.43809 19.6576 6.94199 19.2995 7.57889 18.9436C8.21579 18.5877 8.73844 18.0651 9.78375 17.0198L18.0176 8.78591M15.2141 5.98239L18.0176 8.78591" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M11 20H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</svg>
+<i class="fa-solid fa-pen-to-square">Write</i>
+</button>
+<!--search bar and write button-->
+
+<!-- logo -->
+<h1 class ="logo">logo here</h1>
+<!-- logo -->
+
+<main>
+<section class="section slider-section">
+<div class="container slider-column">
+<div class="swiper swiper-slider"> 
+<div class="swiper-wrapper">   
+                     
+<img class="swiper-slide" src="images/12.png">
+<img class="swiper-slide" src="images/13.png"> 
+<img class="swiper-slide" src="images/14.png"> 
+<img class="swiper-slide" src="images/15.png">
+<img class="swiper-slide" src="images/16.png"> 
+<img class="swiper-slide" src="https://cdn.pixabay.com/photo/2019/09/13/11/47/mountains-4473760_1280.jpg">
+</div>
+<div class="swiper-pagination"></div>
+</div>
+</div>
+</section>
+</main>
+</div>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-slider', {
+            centeredSlides: true,
+            slidesPerView: 1,
+            grabCursor: true,
+            freeMode: false,
+            loop: true,
+            mousewheel: false,
+            keyboard: {
+                enabled: true
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                dynamicBullets: false,
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1.25,
+                    spaceBetween: 20
+                },
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                }
+            }
+        });
+    </script>
+    <!--navbar javascript-->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navbar = document.querySelector('.navbar');
+      const menuIcon = document.querySelector('.menu-icon');
+      const asideNav = document.querySelector('.aside-nav');
+      const closeBtn = document.querySelector('.close-btn');
+      const asideLinks = document.querySelectorAll('.aside-nav > ul > li > a');
+
+      let lastScrollTop = 0;
+      const scrollThreshold = 200;
+
+      window.addEventListener('scroll', function() {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+          if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+              navbar.classList.add('fade-out');
+          } else if (scrollTop < lastScrollTop && scrollTop < scrollThreshold) {
+              navbar.classList.remove('fade-out');
+          }
+
+          lastScrollTop = scrollTop;
+      });
+
+      menuIcon.addEventListener('click', function() {
+          asideNav.classList.add('active');
+          setTimeout(() => {
+              asideNav.querySelectorAll('li').forEach((li, index) => {
+                  setTimeout(() => {
+                      li.style.opacity = '1';
+                      li.style.transform = 'translateX(0)';
+                  }, index * 100);
+              });
+          }, 300);
+      });
+
+      closeBtn.addEventListener('click', function() {
+          asideNav.querySelectorAll('li').forEach((li) => {
+              li.style.opacity = '0';
+              li.style.transform = 'translateX(-20px)';
+          });
+          setTimeout(() => {
+              asideNav.classList.remove('active');
+          }, 300);
+      });
+
+      asideLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+              const dropdown = this.nextElementSibling;
+              if (dropdown && dropdown.classList.contains('dropdown')) {
+                  e.preventDefault();
+                  if (dropdown.style.display === 'block') {
+                      dropdown.style.opacity = '0';
+                      setTimeout(() => {
+                          dropdown.style.display = 'none';
+                      }, 300);
+                  } else {
+                      dropdown.style.display = 'block';
+                      setTimeout(() => {
+                          dropdown.style.opacity = '1';
+                      }, 10);
+                  }
+              }
+          });
+      });
+
+      document.addEventListener('click', function(e) {
+          if (!asideNav.contains(e.target) && e.target !== menuIcon) {
+              asideNav.querySelectorAll('li').forEach((li) => {
+                  li.style.opacity = '0';
+                  li.style.transform = 'translateX(-20px)';
+              });
+              setTimeout(() => {
+                  asideNav.classList.remove('active');
+              }, 300);
+          }
+      });
+  });
+</script>
+    <!--navbar javascript-->
+</body>
+</html>
